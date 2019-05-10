@@ -9,7 +9,7 @@
     "test": "jest --coverage",
     "build": "eslint src && jest && webpack --optimize-minimize --config webpack.prod.js",
     "dev": "eslint src && webpack-dev-server --open --config webpack.dev.js",
-    "serve": "node test/server.js"
+    "serve": "node web/server.js"
   },
   "repository": {
     "type": "git",
