@@ -4,7 +4,7 @@ var webpack = require("webpack");
 var common = require("./webpack.common.js");
 var OpenBrowserPlugin = require("open-browser-webpack-plugin");
 module.exports = merge(common, {
-  plugins:[new OpenBrowserPlugin({ url: 'http://0.0.0.0:8080/test/demo1/' })],
+  plugins:[new OpenBrowserPlugin({ url: 'http://0.0.0.0:8080/web/peng_picture/' })],
   devServer: {
     disableHostCheck: true,
     progress: true,
