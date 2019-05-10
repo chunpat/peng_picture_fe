@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <title>图床</title>
+  <link href="images/favicon.ico" rel="shortcut icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./style/index.css">
+  <link rel="stylesheet" href="./style/pagination.css">
+</head>
+
+<body>
+   
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">图床</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
+        <ul class="nav navbar-nav">
+          <li class="active">
+            <a href="#">首页</a>
+          </li>
+          <li>
+            <a href="#">我的</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="mainContainer">
+    <form method="post" enctype="multipart/form-data" id="form" action="upload">
+      <div id="box" class="hide">
+        <button class="select-button">选择文件</button>
+        <a class="file-input" id="select"></a>
+      </div>
+      <div id="box2">
+        <button class="select-button">选择文件</button>
+        <input class="file-input" type="file" id="select2" />
+      </div>
+    </form>
+    <div class="nav-box" style="margin-top:30px">
+      <ul id="myTab" class="nav nav-tabs">
+        <li role="presentation" class="active">
+          <a href="#h5" name="h5" data-toggle="tab">
+            上传列表
+          </a>
+        </li>
+        <li role="presentation">
+          <a href="#myImages" name="myImages" data-toggle="tab">我的文件列表</a>
+        </li>
+      </ul>
+      <div id="process" class="tab-content">
+        <div class="tab-pane fade in active" id="h5">
+          <table class="table table-striped table-hover text-left" style="margin-top:30px">
+            <thead>
+              <tr>
+                <th class="col-md-4">图片</th>
+                <th class="col-md-2">图片大小</th>
+                <th class="col-md-6">图片链接</th>
+              </tr>
+            </thead>
+            <tbody id="fsUploadProgress">
+        
+            </tbody>
+          </table>
+        </div>
+        <div class="tab-pane fade" id="myImages">
+          <table class="table table-striped table-hover text-left" style="margin-top:30px">
+            <thead>
+              <tr>
+                <th class="col-md-4">图片</th>
+                <th class="col-md-2">分类</th>
+                <th class="col-md-6">图片链接</th>
+              </tr>
+            </thead>
+            <tbody id="myImageContent">
+                <tr>
+                    <td>
+                      <div class="wraper">
+                        <a class="linkViewWrapper">
+                          <img src="https://img.zzhpeng.cn/u=649972288,2098479491&amp;fm=170&amp;s=2BA0C8035CB0E7B59B3005D2030080B2&amp;w=430&amp;h=420&amp;img.JPG-watermark">
+                        </a>
+                      </div>
+                    </td>
+                    <td>
+                      0.02M
+                    </td>
+                    <td>
+                      <div style="overflow:hidden">
+                        <div id="totalBar" style="float:left;width:80%;height:30px;border:1px solid;border-radius:3px" class="hide">
+                          <div id="totalBarColor" style="width: 100%; border: 0px; background-color: rgba(232, 152, 39, 0.8); height: 28px;"></div>
+                          <p class="speed">进度：100% </p></div><div class="control-container">https://img.zzhpeng.cn/u=649972288,2098479491&amp;fm=170&amp;s=2BA0C8035CB0E7B59B3005D2030080B2&amp;w=430&amp;h=420&amp;img.JPG-watermark</div>
+                        </div>
+                        <div><button class="btn btn-default resume hide">查看分块进度</button>
+                        </div>
+                    </td>
+                  </tr>
+            </tbody>
+          </table>
+          <nav aria-label="Page navigation">
+              <ul class="pagination">
+                <li>
+                  <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                  </a>
+                </li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li>
+                  <a href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- 模态框（Modal） -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            &times;
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="display">
+            <a id = "imgContainer">
+              <img data-key="">
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal -->
+  </div>
+</body>
+<style>
+</style>
+<!--[if lte IE 8]>
+  <script src="http://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+<![endif]-->
+<!--[if gt IE 8]>
+  <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+<![endif]-->
+<!--[if !IE]><!-->
+<script src="./js/jquery.min.js"></script>
+<!--<![endif]-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+<script src="./js/json3.min.js"></script>
+<script>
+    // localStorage.setItem('order', 'a109');
+    // console.log(localStorage.key(0)); // order
+    // console.log(localStorage.getItem('order')) // a109
+    // localStorage.removeItem('order');
+    // localStorage.clear();
+    // // 对象访问方式同样有效
+    // localStorage.order = 'b110';
+    // localStorage.order; // b110
+    
+    localStorage.setItem('authorization', 'bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvd3d3Lnp6aHBlbmcuY24iLCJpYXQiOjE1NTczOTkyODcsInV1aWQiOjE0LCJzY29wZXMiOjEsImV4cCI6MTU1NzQwNjQ4N30.Pa5BD6Rm_LAZKnLX40nxr9L2lv_IQVWFDPzsmRdXRXU');
+    
+    </script>
+<script type="text/javascript" src='./js/plupload.full.min.js'></script>
+<script type="text/javascript" src='/dist/qiniu.min.js'></script>
+<script type="text/javascript" src='./component/widget.js'></script>
+<script type="text/javascript" src='./common/common.js'></script>
+<script type="text/javascript" src='./component/ui.js'></script>
+<script type="text/javascript" src='./scripts/uploadWithSDK.js'></script>
+<script type="text/javascript" src='./main.js'></script>
+
+
+</html>

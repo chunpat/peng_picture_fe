@@ -1,0 +1,8 @@
+{
+    "AccessKey": "21",  // https://portal.qiniu.com/user/key
+    "SecretKey": "A11",
+    "Bucket": "journal",
+    "Port": 9000,
+    "UptokenUrl": "z11BK6obMDLe6yqxHTmBcO5ZZCChj_-Np7tEScbw:A-ooIJ4FjGAfzyTXcNi0VV0oKRA=:eyJjYWxsYmFja1VybCI6Imh0dHA6XC9cLzE3Mi4zMC4yNTEuMjEwXC9jYWxsYmFjay5waHAiLCJjYWxsYmFja0JvZHkiOiJ7XCJ1aWRcIjoxNH0iLCJzY29wZSI6ImpvdXJuYWwiLCJkZWFkbGluZSI6MTU1NjUyODgwNX0=",
+    "Domain": "img.zzhpeng.cn" // bucket domain eg:http://qiniu-plupload.qiniudn.com/
+}
