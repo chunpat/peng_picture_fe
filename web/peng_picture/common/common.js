@@ -237,9 +237,9 @@ function getImages(pageParam,count) {
     type: "GET",
     url: "http://127.0.0.1:9510/File/index?page=" + pageParam + '&count=' + count, 
     dataType: "json",
-    beforeSend: function(request) {
-      request.setRequestHeader("Authorization",localStorage.getItem('authorization'));
-    },
+    // beforeSend: function(request) {
+    //   request.setRequestHeader("Authorization",localStorage.getItem('authorization'));
+    // },
     success: function(res){
       console.log(res)
       if(res.error_code == 200){
