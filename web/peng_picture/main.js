@@ -27,7 +27,7 @@ $.ajax({
       }
       if(res.error_code == 400)
       {
-          alert( res.error_msg);
+          alert('数据接口请求');
           return ;
       }
        
@@ -60,7 +60,7 @@ $.ajax({
       uploadWithSDK(token, putExtra, config, domain);
   },
   error: function(res){
-      console.log(res)
+      console.log('66666')
       alert(res.responseJSON.msg);
   }
 })

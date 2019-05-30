@@ -307,8 +307,7 @@ function getImages(pageParam,count) {
 
   },
   error: function(res){
-      console.log(res)
-      alert(res.responseJSON.msg);
+    alert('数据接口请求错误');
   }
   })
 }
